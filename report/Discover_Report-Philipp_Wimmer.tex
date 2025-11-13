@@ -1,0 +1,85 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{titling}
+
+\geometry{margin=2.5cm}
+\setlength{\droptitle}{-4em}
+\setstretch{1.15}
+
+\title{Visual Data Science - Discover Report}
+\author{Philipp Wimmer, 12536839}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Topic Description}
+
+The focus of this project is to visualize and analyze global electricity production and its composition over time.
+The main objectives are to explore how different countries generate electricity, how the share of renewable and non-renewable sources has evolved
+and how these trends relate to environmental impact, particularly CO\textsubscript{2} emissions.
+Special attention will be given to Austria, Germany, and the top 20 countries worldwide by total electricity generation.
+The analysis will examine the transition towards renewable energy, identifying leading nations in renewable adoption
+and observing significant developments such as the rapid rise of solar and wind power in recent decades.
+The project aims to highlight trends, shifts, and milestones in the global energy landscape, linking them to broader sustainability goals.
+
+Visualizations will include:
+\begin{itemize}[noitemsep]
+    \item Line charts showing the growth of renewables over time
+    \item Stacked area charts comparing renewable vs. non-renewable sources
+    \item Bar charts comparing countries or regions
+    \item Geographical maps to visualize spatial differences in electricity generation and emissions
+\end{itemize}
+
+Through these visualizations, the project seeks to provide clear insights into how the global electricity mix is changing and how this affects CO\textsubscript{2} emissions and climate objectives.
+
+\section{Dataset Description}
+
+The dataset used for this project originates from the \textbf{Energy Institute Statistical Review of World Energy}
+(\href{https://www.energyinst.org/statistical-review/home}{https://www.energyinst.org/statistical-review/home}).
+It provides comprehensive global data on energy production, consumption, reserves, and emissions across all major energy sources.
+The dataset is available both as an Excel file with multiple sheets and as a consolidated CSV file,
+which merges all relevant information into a single structured format with country-year observations.
+For this analysis, the focus is on columns related to electricity generation and CO\textsubscript{2} emissions,
+which allow for evaluating energy trends, fuel mix, and environmental impact at a national level.
+
+\subsection*{Columns of Interest}
+
+\textbf{Electricity Generation}
+\begin{itemize}[noitemsep]
+    \item \texttt{elect\_twh} / \texttt{electbyfuel\_total}: Total Electricity Generation
+    \item \texttt{electbyfuel\_coal}: Electricity Generation from Coal
+    \item \texttt{electbyfuel\_gas}: Electricity Generation from Natural Gas
+    \item \texttt{electbyfuel\_oil}: Electricity Generation from Oil
+    \item \texttt{electbyfuel\_nuclear}: Electricity Generation from Nuclear
+    \item \texttt{electbyfuel\_hydro} / \texttt{hydro\_twh}: Electricity Generation from Hydro
+    \item \texttt{electbyfuel\_ren\_power}: Electricity Generation from Renewables (excluding hydro)
+    \begin{itemize}
+        \item \texttt{wind\_twh}: Wind Generation
+        \item \texttt{solar\_twh}: Solar Generation
+    \end{itemize}
+    \item \texttt{electbyfuel\_other}: Electricity Generation from Other Sources (e.g., biomass, geothermal)
+    \begin{itemize}
+        \item \texttt{biogeo\_twh}: Geothermal, Biomass, and Other Renewable Generation
+    \end{itemize}
+\end{itemize}
+
+\textbf{CO\textsubscript{2}}
+\begin{itemize}[noitemsep]
+    \item \texttt{co2\_combust\_mtco2}: CO\textsubscript{2} Emissions from Energy Combustion
+    \item \texttt{co2\_combust\_pc}: CO\textsubscript{2} Emissions per Capita
+\end{itemize}
+
+This dataset provides a robust foundation for analyzing electricity generation patterns, comparing renewable vs.\ non-renewable sources, and assessing the relationship between electricity production and CO\textsubscript{2} emissions on both national and global scales.
+
+\end{document}
