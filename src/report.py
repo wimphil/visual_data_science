@@ -11,7 +11,7 @@ st.set_page_config(
 
 COLOR_PALETTE = px.colors.qualitative.Safe_r
 
-st.title("Country Renewable Share")
+st.title("Electricity Generation and Renewable Share by Country")
 st.markdown("Click on one of the points in the scatter plot to select a country in a deeper drilldown!")
 
 @st.cache_data
@@ -28,6 +28,9 @@ with ctrl_col:
         options=list(range(1985, 2025)),
         value=2024
     )
+
+    st.text("Note: only countries that provided information about the electricity production per source are included")
+    st.text("This dashboard is part of an exercise of the Visual Data Science Course at TU Wien and submitted by Philipp Wimmer")
 
 df_scatter = df[df["Year"] == year_scatter]
 
