@@ -11,8 +11,7 @@ st.set_page_config(
 
 COLOR_PALETTE = px.colors.qualitative.Safe_r
 
-st.title("Electricity Generation and Renewable Share by Country")
-st.markdown("Click on one of the points in the scatter plot to select a country in a deeper drilldown!")
+st.markdown("### Electricity Generation and Renewable Share by Country")
 
 @st.cache_data
 def load_data():
@@ -20,11 +19,12 @@ def load_data():
 
 df = load_data()
 
-chart_col, ctrl_col = st.columns([3, 1])
+chart_col, ctrl_col = st.columns([2, 1])
 
 with ctrl_col:
+    st.markdown("**Click on one of the points in the scatter plot to select a country in a deeper drilldown!**")
     year_scatter = st.select_slider(
-        "Select Year",
+        "Select Year for Scatter Plot",
         options=list(range(1985, 2025)),
         value=2024
     )
@@ -53,7 +53,7 @@ fig.update_yaxes(
         showgrid=False,
         ticks=""
     ),
-    title_text="Log(Total electricity production in TWh)"
+    title_text="Log(Total elect. prod. in TWh)"
 )
 fig.update_xaxes(showgrid=True, title_text="Share of Renewable Power in total Electricity Production in %")
 
@@ -62,7 +62,7 @@ with chart_col:
     event = st.plotly_chart(
         fig,
         width='stretch',
-        height=380,
+        height=300,
         on_select='rerun',
         config={
             "displayModeBar": False
@@ -94,7 +94,7 @@ country_section = st.container()
 with country_section:
     # country specific
     if selected_country:
-        st.markdown(f"## Close look at {selected_country}")
+        #st.markdown(f"#### Close look at {selected_country}")
 
         c1, c2, c3 = st.columns(3)
 
@@ -209,11 +209,11 @@ with country_section:
         )
 
         with c1:
-            st.plotly_chart(fig_mix, width="stretch", config={"displayModeBar": False})
+            st.plotly_chart(fig_mix, width="stretch", config={"displayModeBar": False}, height=400)
 
         with c2:
-            st.plotly_chart(fig_abs, width="stretch", config={"displayModeBar": False})
+            st.plotly_chart(fig_abs, width="stretch", config={"displayModeBar": False}, height=400)
 
         with c3:
-            st.plotly_chart(fig_dual, width="stretch", config={"displayModeBar": False})
+            st.plotly_chart(fig_dual, width="stretch", config={"displayModeBar": False}, height=400)
 
