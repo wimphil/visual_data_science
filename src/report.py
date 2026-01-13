@@ -121,7 +121,7 @@ with country_section:
             y="TWh",
             color="Source",
             groupnorm="fraction",  # <-- makes it 100% stacked
-            title=f"Electricity mix over time (share)",
+            title=f"Electricity mix over time (share) - {selected_country}",
             color_discrete_sequence=COLOR_PALETTE
         )
         fig_mix.update_yaxes(tickformat=".0%", title_text="Share of total")
@@ -143,7 +143,7 @@ with country_section:
             x="Year",
             y="TWh",
             color="Source",
-            title=f"Electricity generation by source (TWh)",
+            title=f"Electricity generation by source (TWh) - {selected_country}",
             color_discrete_sequence=COLOR_PALETTE
         )
         fig_abs.update_yaxes(title_text="TWh")
@@ -185,7 +185,7 @@ with country_section:
         )
 
         fig_dual.update_layout(
-            title=f"Total electricity production and renewable share",
+            title=f"Total electricity production and renewable share - {selected_country}",
             xaxis=dict(title="Year"),
             yaxis=dict(
                 title="Total electricity production (TWh)",
