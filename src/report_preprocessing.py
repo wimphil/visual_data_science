@@ -23,7 +23,7 @@ df_all_countries = df_all_countries.dropna(axis=0, subset=['Region'])
 
 ren_power_cols = ['electbyfuel_ren_power', 'electbyfuel_hydro']
 
-df_all_countries['ren_power_share'] = df_all_countries[ren_power_cols].sum(axis=1) / df_all_countries['electbyfuel_total']
+df_all_countries['ren_power_share'] = df_all_countries[ren_power_cols].sum(axis=1) / df_all_countries['electbyfuel_total']*100
 
 df_all_countries = df_all_countries.dropna(axis=0, subset=['ren_power_share'])
 
