@@ -22,7 +22,7 @@ df = load_data()
 chart_col, ctrl_col = st.columns([2, 1])
 
 with ctrl_col:
-    st.markdown("**Click on one of the points in the scatter plot to select a country in a deeper drilldown!**")
+    st.markdown("**Click on one of the points in the scatter plot to select a country in a deeper insight!**")
     year_scatter = st.select_slider(
         "Select Year for Scatter Plot",
         options=list(range(1985, 2025)),
@@ -217,3 +217,8 @@ with country_section:
         with c3:
             st.plotly_chart(fig_dual, width="stretch", config={"displayModeBar": False}, height=400)
 
+    else:
+        st.text("")
+        st.text("")
+        st.text("")
+        st.markdown("### *Click on one of the countries in the scatter plot to reveal more charts for a deeper insight!*")
